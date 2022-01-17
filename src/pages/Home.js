@@ -1,11 +1,17 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import Map from "../components/Map";
 
 const Home = () => {
+
+    const style = css`
+        
+    `;
+
     return ( 
-        <>  
-            <h1>This is the home component</h1>
+        <div css={style}>
             <Map />
-        </>
+        </div>
      );
 }
  

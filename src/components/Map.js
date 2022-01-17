@@ -12,7 +12,7 @@ const Map = () => {
         longitude: 12.5142235,
         zoom: 16,
         width: "100vw",
-        height: "50vh"
+        height: "100vh"
     });
 
     //vi kan style navigations knapperne ved at lave et object med nogle styles. 
@@ -32,9 +32,9 @@ const Map = () => {
         <ReactMapGL
         //i stedet for at skrive alle vores props, tager vi bare vores object og spreader det
             {...viewport}
-            mapboxApiAccessToken={process.env.MOVIE_BUDDY_MAPBOX}
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
             onViewportChange={setViewport}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/anneroemer/ckyiy8ej08bbn15pcsn8yrrwq"
         >
             <NavigationControl style={navigationControlStyle} />
             <GeolocateControl 
