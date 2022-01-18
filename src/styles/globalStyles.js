@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { colors } from "./colors";
 
 export const Globalstyles = css`
     
@@ -9,6 +10,7 @@ export const Globalstyles = css`
         box-sizing: border-box;
         min-height: 100vh;
         min-height: 100%;
+        background-color: ${colors.deepBlue};
     }
 
     a {

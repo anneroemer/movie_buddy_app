@@ -19,9 +19,8 @@ const Navigation = () => {
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        padding: 1.4rem 0;
-        box-shadow: rgba(86, 139, 208, 0.5) 0px 20px 30px 4px;
-
+        padding: 0.6rem 0;
+        box-shadow: 0px -9px 25px 5px rgba(0,0,0,0.37);
 
         & .nav-link {
             color: ${colors.duskyPink};
@@ -40,6 +39,7 @@ const Navigation = () => {
             justify-content: center;
             width: 1.5rem;
             height: 1.5rem;
+            border: 3px solid ${colors.deepBlue};
         }
     `;
 
