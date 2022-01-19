@@ -11,6 +11,7 @@ export const Globalstyles = css`
         min-height: 100vh;
         min-height: 100%;
         background-color: ${colors.deepBlue};
+        font-family: 'Inter', sans-serif;
     }
 
     a {

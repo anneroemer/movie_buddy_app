@@ -1,15 +1,27 @@
-import ReactMapGL, { GeolocateControl, Marker, NavigationControl } from "react-map-gl";
-import { useState } from "react";
+import ReactMapGL, { GeolocateControl, NavigationControl } from "react-map-gl";
 import mapboxgl from "mapbox-gl";
 import { colors } from '../styles/colors';
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { useEffect, useState } from 'react';
+import axios from "axios";
+import MapMarker from "./MapMarker";
+
 
 //eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const Map = () => {
 
-    //55.70004201041317, 12.544032180774238
+    const [users, setUsers] = useState();
+
+
+    useEffect(() => {
+        axios(`/users.json`, {
+        })
+        .then((result) => {
+            //console.log(result.data)
+            setUsers(result.data)
+        });
+    }, []);
 
     const [viewport, setViewport] = useState({
         latitude: 55.70004201041317,
@@ -19,9 +31,6 @@ const Map = () => {
         height: "100vh"
     });
 
-    //vi kan style navigations knapperne ved at lave et object med nogle styles. 
-    //Vi kunne også style directe på komponentet. 
-    //nu vil det sidde i højre hjørne med lidt luft omkring
     const navigationControlStyle = {
         right: 16,
         bottom: 80,
@@ -32,6 +41,7 @@ const Map = () => {
         right: 16,
         bottom: 180
     }
+
 
     return ( 
         <ReactMapGL
@@ -50,11 +60,14 @@ const Map = () => {
                 showAccuracyCircle={true}
                 auto
                 />
-            <Marker latitude={55.70004201041317} longitude={12.544032180774238}>
+                {users?.map((user, index) => (
+                    <MapMarker key={index} name={user?.name} latitude={user?.latitude} longitude={user?.longitude}/>
+                ))}
+            {/* <Marker latitude={55.70004201041317} longitude={12.544032180774238}>
                 <div style={{width: "2rem", height: "2rem", color: `${colors.orangeRed}`, fontSize: "2.5rem"}}>
                     <FaMapMarkerAlt />
                 </div>
-            </Marker>
+            </Marker> */}
         </ReactMapGL>
      );
 }
