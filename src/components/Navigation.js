@@ -20,7 +20,7 @@ const Navigation = () => {
         justify-content: center;
         align-items: flex-end;
         padding: 0.6rem 0;
-        box-shadow: 0px -9px 25px 5px rgba(0,0,0,0.37);
+        box-shadow: 0px -9px 25px 5px rgba(0,0,0,0.25);
 
         & .nav-link {
             color: ${colors.duskyPink};

@@ -33,7 +33,7 @@ const Home = () => {
             overflow: scroll;
             background-color: ${colors.deepBlue};
             border-radius: 0 0 1rem 1rem;
-            box-shadow: 4px 9px 25px 5px rgba(0,0,0,0.37);
+            box-shadow: 4px 9px 25px 5px rgba(0,0,0,0.30);
 
         }
         & .users-list {

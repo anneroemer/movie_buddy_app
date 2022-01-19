@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import MyProfile from "./pages/MyProfile";
 import Home from './pages/Home';
 import Layout from './pages/Layout';
+import UserInfo from './pages/UserInfo';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout />}>    
           <Route path="/" element={<Home />} />
           <Route path="myprofile" element={<MyProfile />} />
+          <Route path=":handle" element={<UserInfo />}/>
         </Route>
       </Routes>
     </div>

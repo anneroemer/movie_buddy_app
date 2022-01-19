@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 
 
-const MapMarker = ({ latitude, longitude, name }) => {
+const MapMarker = ({ latitude, longitude, name, handle }) => {
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -45,7 +45,7 @@ const MapMarker = ({ latitude, longitude, name }) => {
             font-size: 0.8rem;
             padding: 0.6rem;
             border-radius: 1rem;
-            box-shadow: 4px 9px 25px 5px rgba(0,0,0,0.37);
+            box-shadow: 4px 9px 25px 5px rgba(0,0,0,0.30);
             text-align: center;
             display: flex;
             align-items: center;
@@ -59,7 +59,7 @@ const MapMarker = ({ latitude, longitude, name }) => {
             }} >
                 <FaMapMarkerAlt className="marker-icon" />
                 <div className="marker-shadow"></div>
-                {isVisible ? <motion.div animate={{y:-10}}><Link to="#">
+                {isVisible ? <motion.div animate={{y:-10}}><Link to={handle} >
                     <div className="user-link-elm">{name}</div></Link></motion.div> : null}
             </div>
         </Marker>

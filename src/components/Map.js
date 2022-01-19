@@ -12,7 +12,7 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const Map = () => {
 
     const [users, setUsers] = useState();
-
+    // const [filteredUsers, setFilteredUsers] = useState([]);
 
     useEffect(() => {
         axios(`/users.json`, {
@@ -22,6 +22,13 @@ const Map = () => {
             setUsers(result.data)
         });
     }, []);
+
+    // useEffect(() => {
+    //     const movieGenres(["horror", ])
+    //     const filtered_users = () => {
+    //         users.filter()
+    //     }
+    // }, []);
 
     const [viewport, setViewport] = useState({
         latitude: 55.70004201041317,
@@ -61,13 +68,8 @@ const Map = () => {
                 auto
                 />
                 {users?.map((user, index) => (
-                    <MapMarker key={index} name={user?.name} latitude={user?.latitude} longitude={user?.longitude}/>
+                    <MapMarker key={index} name={user?.name} latitude={user?.latitude} longitude={user?.longitude} handle={user?.handle}/>
                 ))}
-            {/* <Marker latitude={55.70004201041317} longitude={12.544032180774238}>
-                <div style={{width: "2rem", height: "2rem", color: `${colors.orangeRed}`, fontSize: "2.5rem"}}>
-                    <FaMapMarkerAlt />
-                </div>
-            </Marker> */}
         </ReactMapGL>
      );
 }

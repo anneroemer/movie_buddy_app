@@ -16,6 +16,8 @@ const MyProfile = () => {
         position: relative;
         top: 15rem;
         text-align: start;
+        box-shadow: 4px 9px 25px 5px rgba(0,0,0,0.70);
+
 
         & .profile-content {
             padding: 0 1.5rem 1.5rem;
@@ -40,20 +42,32 @@ const MyProfile = () => {
             font-size: 0.6rem;
             margin: 0 0 1rem;
         }
-        /* & .movie-choice {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-width: 6rem;
-            background-color: ${colors.deepBlue};
-            border-radius: 1000px;
-            padding: 0 0.1rem;
-            color: ${colors.duskyPink};
+        & .text-area {
+            appearance: none;
+            background-color: ${colors.lightPink};
+            color: ${colors.deepBlue};
+            border: none;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            resize: none;
         }
-        input[type=checkbox] {
-            opacity: 0;
-        } */
+        & .text-area::placeholder {
+            appearance: none;
+            font-family: inter, sans-serif;
+            color: ${colors.deepBlue};
+
+        }
+        & .select-gender {
+            appearance: none;
+            user-select: none;
+            color: ${colors.deepBlue};
+            background-color: ${colors.lightPink};
+            width: 10rem;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 1rem;
+        }
 
     `;
 
@@ -65,17 +79,17 @@ const MyProfile = () => {
                         <Avatar />
                     </div>
                     <div className='profile-content'>
-                        <h2 className='profile-name'>Hi Jane Doe</h2>
+                        <h2 className='profile-name'>hi Jane Doe</h2>
                         <p className='profile-handle'>@janedoe</p>
-                        <select name="gender" id="gender">
+                        <select className='select-gender' name="gender" id="gender">
                             <option value="woman">Woman</option>
                             <option value="man">Man</option>
                             <option value="non-binary">Non-binary</option>
                             <option value="other">Others</option>
                         </select>
-                        <h4>Bio</h4>
-                        <textarea name="bio-text" rows="5" cols="40" placeholder='Write a short bio text here...'/>
-                        <h4>Movie genres</h4>
+                        <h4>bio</h4>
+                        <textarea className="text-area" name="bio-text" rows="5" cols="36" placeholder='Write a short bio text here...'/>
+                        <h4>movie genres</h4>
                         <div className='movie-choice-container'>
                             <MovieChoice genre="Sci-fi" />
                             <MovieChoice genre="Romance" />
