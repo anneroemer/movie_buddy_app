@@ -10,23 +10,21 @@ import axios from "axios";
 
 
 const UserInfo = () => {
-    
     let params = useParams();
-    const [users, setUsers] = useState();
+    //console.log(params.handle)
+
+    const [user, setUser] = useState();
 
     useEffect(() => {
-        axios(`/users.json`, {
+        axios(`users.json`, {
         })
         .then((result) => {
-            console.log(result.data)
-            setUsers(result.data)
-        });
-    }, []);
+            let user = result.data.filter(x => params.handle === x.handle);
+            //console.log(user)
+            setUser(user[0])
+        })
+    }, [params.handle]);
 
-    // useEffect(() => {
-    //     const array = users?.filter(user => user[0].handle === params);
-    //     console.log(array)
-    // }, [users, params]);
 
 
     const style = css`
@@ -81,14 +79,15 @@ const UserInfo = () => {
 
     }
     & .select-gender {
-        appearance: none;
-        user-select: none;
         color: ${colors.deepBlue};
         background-color: ${colors.lightPink};
-        width: 10rem;
+        width: 6rem;
         border: none;
-        padding: 0.5rem;
+        padding: 0.03rem 0.7rem;
         border-radius: 1rem;
+        font-size: 0.8rem;
+        
+
     }
 `;
 
@@ -99,16 +98,13 @@ const UserInfo = () => {
                         <Avatar />
                     </div>
                     <div className='profile-content'>
-                        <h2 className='profile-name'>This is the user info</h2>
+                        <h2 className='profile-name'>{user?.name}</h2>
                         <p className='profile-handle'>@{params.handle}</p>
-                        <select className='select-gender' name="gender" id="gender">
-                            <option value="woman">Woman</option>
-                            <option value="man">Man</option>
-                            <option value="non-binary">Non-binary</option>
-                            <option value="other">Others</option>
-                        </select>
+                        <div className='select-gender'>
+                            <p>{user?.gender}</p>
+                        </div>
                         <h4>bio</h4>
-                        <textarea className="text-area" name="bio-text" rows="5" cols="36" placeholder='Write a short bio text here...'/>
+                        <textarea className="text-area" name="bio-text" rows="5" cols="36" placeholder={user?.bio}/>
                         <h4>movie genres</h4>
                         <div className='movie-choice-container'>
                             <MovieChoice genre="Sci-fi" />

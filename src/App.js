@@ -7,19 +7,24 @@ import MyProfile from "./pages/MyProfile";
 import Home from './pages/Home';
 import Layout from './pages/Layout';
 import UserInfo from './pages/UserInfo';
+//import UserContextProvider from "./contexts/MyUserContext";
 
 
 function App() {
   return (
     <div className="App">
+      
       <Global styles={Globalstyles} />
-      <Routes>
-        <Route path="/" element={<Layout />}>    
-          <Route path="/" element={<Home />} />
-          <Route path="myprofile" element={<MyProfile />} />
-          <Route path=":handle" element={<UserInfo />}/>
-        </Route>
-      </Routes>
+      {/* <UserContextProvider> */}
+        <Routes>
+          <Route path="/" element={<Layout />}>    
+            <Route path="/" element={<Home />} />
+            <Route path="myprofile" element={<MyProfile />} />
+            <Route path=":handle" element={<UserInfo />}/>
+          </Route>
+        </Routes>
+      {/* </UserContextProvider> */}
+
     </div>
   );
 }

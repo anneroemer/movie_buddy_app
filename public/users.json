@@ -1,71 +1,80 @@
 [
     {
-        "id": 1,
+        "_id": "krgjq35830t43nqgoijgq3u",
         "name": "Ryan Bergara",
         "handle": "bergmeister",
+        "gender": "man",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQNLQtTBLcYcg68d9Hda6SszRLywQN32En0A&usqp=CAU",
         "bio": "Just a guy with a penchant for horror, but no-one to share my interest with. Please join my quest for some real tasty gore. Oh, and popcorn are my thing... So if we share, it will have to be a big ass bucket...",
-        "movieChoice": {
-            "horror": true,
-            "romance": false,
-            "comedy": true,
-            "drama": false
-        },
+        "movieChoice":[
+            "action",
+            "sci-fi",
+            "horror",
+            "comedy"
+        ],
         "longitude": 12.55360230247243,
         "latitude": 55.701299552357455
     },
     {
-        "id": 2,
+        "_id": "w4i34tn3g0394ig09jnt24tn",
         "name": "Carlos Santana",
         "handle": "carlos",
+        "gender": "man",
+        "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/screen-shot-2020-12-19-at-9-34-31-am-1608388603.png",
         "bio": "Don't know shit about movies. Just lonely.",
-        "movieChoice": {
-            "horror": true,
-            "romance": true,
-            "comedy": true,
-            "drama": true
-        },
+        "movieChoice":[
+            "romance",
+            "action",
+            "sci-fi",
+            "horror",
+            "drama",
+            "comedy"
+        ],
         "longitude": 12.556509817083004,
         "latitude": 55.698077020098815
     },
     {
-        "id": 3,
+        "_id": "ælwkgirgjitjn32842389203",
         "name": "Pat Carroll",
         "handle": "ursula",
+        "gender": "woman",
+        "image": "https://cdn.mos.cms.futurecdn.net/zdhLE887u632w6c7LWuSdm-1200-80.jpg",
         "bio": "A good ass score... Aaand maybe some singing along. That's my thing. But none of my friends can sing for the life of them. Please help!",
-        "movieChoice": {
-            "horror": false,
-            "romance": true,
-            "comedy": true,
-            "drama": true
-        },
+        "movieChoice":[
+            "action",
+            "horror",
+            "drama"
+        ],
         "longitude": 12.545868034460948,
         "latitude": 55.699016693651416
     },
     {
-        "id": 4,
+        "_id": "fm4389h4t3985t092h5ng",
         "name": "Margrethe Vestager",
         "handle": "maggie_babaaay",
+        "gender": "woman",
+        "image": "https://images.seoghoer.dk/s3fs-public/media/article/margrethe-vestager_0.jpg",
         "bio": "I have a tendency to talk during movies, so I hope you can live with that. I also like to discuss a movie afterwards, so hopefully you are up for that!",
-        "movieChoice": {
-            "horror": true,
-            "romance": true,
-            "comedy": true,
-            "drama": true
-        },
+        "movieChoice":[
+            "romance",
+            "drama",
+            "comedy"
+        ],
         "longitude": 12.54911143044786,
         "latitude": 55.69671783607421
     },
     {
-        "id": 5,
+        "_id": "lwr24tni34th395th3ig3bg",
         "name": "Kirsten Rolffes",
         "handle": "drusse_the_goat",
+        "gender": "other",
+        "image": "https://em-epi-static.azureedge.net/altdk-media/97cabbf6ceec4b2a886eef60fa17aa31/6a8d6d888791453b98016ed848fd4c2f.jpg",
         "bio": "I love, love, looove horror... Preferably related to the supernatural, please and thank you.",
-        "movieChoice": {
-            "horror": true,
-            "romance": false,
-            "comedy": false,
-            "drama": false
-        },
+        "movieChoice":[
+            "action",
+            "sci-fi",
+            "horror"
+        ],
         "longitude": 12.565457094120866,
         "latitude": 55.69687580383335
     }

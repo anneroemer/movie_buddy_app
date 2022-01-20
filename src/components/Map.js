@@ -12,7 +12,7 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const Map = () => {
 
     const [users, setUsers] = useState();
-    // const [filteredUsers, setFilteredUsers] = useState([]);
+    //const [filteredUsers, setFilteredUsers] = useState([]);
 
     useEffect(() => {
         axios(`/users.json`, {
@@ -20,15 +20,22 @@ const Map = () => {
         .then((result) => {
             //console.log(result.data)
             setUsers(result.data)
+            //console.log(result.data[0].movieChoice)
         });
     }, []);
 
     // useEffect(() => {
-    //     const movieGenres(["horror", ])
+    //     const movieGenres = ["horror", "drama"];
+    //     const usersMovieChoice = users[0].movieChoice;
+    //     console.log(usersMovieChoice)
     //     const filtered_users = () => {
-    //         users.filter()
+    //         let result = usersMovieChoice.filter(item =>  usersMovieChoice.includes(movieGenres))        
+    //         console.log(result)
     //     }
-    // }, []);
+    //     //filtered_users()
+    //     //setFilteredUsers(filtered_users)
+    // }, [filteredUsers, users]);
+
 
     const [viewport, setViewport] = useState({
         latitude: 55.70004201041317,
@@ -68,7 +75,7 @@ const Map = () => {
                 auto
                 />
                 {users?.map((user, index) => (
-                    <MapMarker key={index} name={user?.name} latitude={user?.latitude} longitude={user?.longitude} handle={user?.handle}/>
+                    <MapMarker key={index} name={user?.name} latitude={user?.latitude} longitude={user?.longitude} handle={user?.handle} />
                 ))}
         </ReactMapGL>
      );

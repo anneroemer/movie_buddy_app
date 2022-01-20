@@ -39,7 +39,7 @@ const SmallUser = ({name, handle}) => {
 
     return ( 
             <li css={style}>
-                <Link to="#" className='user-link'>
+                <Link to={handle} className='user-link'>
                     <div>
                         <h3 className='user-name'>{name}</h3>
                         <h4 className='user-handle'>@{handle}</h4>
