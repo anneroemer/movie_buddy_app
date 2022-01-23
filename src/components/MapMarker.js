@@ -59,8 +59,8 @@ const MapMarker = ({ latitude, longitude, name, handle }) => {
             }} >
                 <FaMapMarkerAlt className="marker-icon" />
                 <div className="marker-shadow"></div>
-                {isVisible ? <motion.div animate={{y:-10}}><Link to={handle} >
-                    <div className="user-link-elm">{name}</div></Link></motion.div> : null}
+                {isVisible && <motion.div animate={{y:-10}}><Link to={handle} >
+                    <div className="user-link-elm">{name}</div></Link></motion.div>}
             </div>
         </Marker>
      );

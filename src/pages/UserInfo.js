@@ -7,10 +7,14 @@ import { colors } from '../styles/colors';
 import { motion } from "framer-motion";
 import MovieChoice from '../components/MovieChoice';
 import axios from "axios";
+import NoMatch from "../components/NoMatch";
+import { useNavigate } from "react-router-dom";
+
 
 
 const UserInfo = () => {
     let params = useParams();
+    let navigate = useNavigate();
     //console.log(params.handle)
 
     const [user, setUser] = useState();
@@ -19,11 +23,12 @@ const UserInfo = () => {
         axios(`users.json`, {
         })
         .then((result) => {
-            let user = result.data.filter(x => params.handle === x.handle);
-            //console.log(user)
-            setUser(user[0])
+            let user = result.data.filter(userArray => params.handle === userArray.handle);
+            console.log(user)
+            user.length === 0 ? navigate("*") : setUser(user[0])
+            
         })
-    }, [params.handle]);
+    }, [params.handle, navigate]);
 
 
 
@@ -95,7 +100,7 @@ const UserInfo = () => {
             <motion.div animate={{y:-150}}>
                 <div css={style}>
                     <div className='top'>
-                        <Avatar />
+                        <Avatar image={user?.image} />
                     </div>
                     <div className='profile-content'>
                         <h2 className='profile-name'>{user?.name}</h2>
@@ -107,7 +112,7 @@ const UserInfo = () => {
                         <textarea className="text-area" name="bio-text" rows="5" cols="36" placeholder={user?.bio}/>
                         <h4>movie genres</h4>
                         <div className='movie-choice-container'>
-                            <MovieChoice genre="Sci-fi" />
+                            <MovieChoice genre="Sci-fi"  />
                             <MovieChoice genre="Romance" />
                             <MovieChoice genre="Horror" />
                             <MovieChoice genre="Drama" />

@@ -7,6 +7,9 @@ import MyProfile from "./pages/MyProfile";
 import Home from './pages/Home';
 import Layout from './pages/Layout';
 import UserInfo from './pages/UserInfo';
+import NoMatch from './components/NoMatch';
+import PWAPrompt from "react-ios-pwa-prompt";
+
 //import UserContextProvider from "./contexts/MyUserContext";
 
 
@@ -22,9 +25,10 @@ function App() {
             <Route path="myprofile" element={<MyProfile />} />
             <Route path=":handle" element={<UserInfo />}/>
           </Route>
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       {/* </UserContextProvider> */}
-
+      <PWAPrompt />
     </div>
   );
 }
