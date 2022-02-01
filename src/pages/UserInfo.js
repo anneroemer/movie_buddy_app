@@ -7,7 +7,6 @@ import { colors } from '../styles/colors';
 import { motion } from "framer-motion";
 import MovieChoice from '../components/MovieChoice';
 import axios from "axios";
-import NoMatch from "../components/NoMatch";
 import { useNavigate } from "react-router-dom";
 
 

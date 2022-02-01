@@ -3,22 +3,23 @@ import { css } from '@emotion/react';
 import Map from "../components/Map";
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import SmallUser from '../components/SmallUser';
+//import SmallUser from '../components/SmallUser';
+import FilterMovieChoice from '../components/FilterMovieChoice';
 import { colors } from '../styles/colors';
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
-//import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Home = () => {
 
-    const [users, setUsers] = useState();
+    //const [users, setUsers] = useState();
 	const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         axios(`/users.json`, {
         })
         .then((result) => {
-            //console.log(result.data)
-            setUsers(result.data)
+            console.log(result.data)
+            //setUsers(result.data)
         });
     }, []);
 
@@ -55,18 +56,35 @@ const Home = () => {
             color: ${colors.duskyPink};
             padding: 0.6rem 0.7rem;
         }
+        & .movie-choice-filtered {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
     `;
 
     return ( 
         <div css={style}>
                     <div className='users-container'>
-                        {isVisible ?
+                        {/* {isVisible ?
                             <ul className='users-list'>
                                 {users?.map((user, index) => (
                                     <SmallUser key={index} name={user.name} handle={user.handle}/>
                                     ))}
                             </ul>
-                        : null}
+                        : null} */}
+                        {isVisible &&
+                        <motion.div animate={{y: 10}}>             
+                            <div className='movie-choice-filtered'>
+                            <FilterMovieChoice genre="Sci-fi"  />
+                            <FilterMovieChoice genre="Romance" />
+                            <FilterMovieChoice genre="Horror" />
+                            <FilterMovieChoice genre="Drama" />
+                            <FilterMovieChoice genre="Comedy" />
+                            <FilterMovieChoice genre="Documentary" />
+                            </div>
+                        </motion.div> }
                     <div className='open-close' onClick={() => {
                         setIsVisible(!isVisible);
                     }}>
