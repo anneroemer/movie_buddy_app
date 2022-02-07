@@ -4,8 +4,22 @@ import Avatar from '../components/Avatar';
 import { colors } from '../styles/colors';
 import { motion } from "framer-motion";
 import MovieChoice from '../components/MovieChoice';
+import { useContext } from 'react';
+import { UserContext } from "../contexts/MyUserContext";
+
 
 const MyProfile = () => {
+
+    const { handleUserInfo, userinfo } = useContext(UserContext);
+    
+    console.log(userinfo)
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      handleUserInfo(e.target.username.value, e.target.userhandle.value, e.target.gender.value, e.target.biotext.value)
+        // localStorage.setItem("userinfo", JSON.stringify(userinfo))
+    }
+
 
     const style = css`
         background-color: ${colors.duskyPink};
@@ -74,21 +88,23 @@ const MyProfile = () => {
     return ( 
         <>
             <motion.div animate={{y:-150}}>
-                <div css={style}>
+                <form onSubmit={handleSubmit} css={style}>
                     <div className='top'>
                         <Avatar />
                     </div>
                     <div className='profile-content'>
-                        <h2 className='profile-name'>hi Jane Doe</h2>
-                        <p className='profile-handle'>@janedoe</p>
-                        <select className='select-gender' name="gender" id="gender">
+                        {/* <h2 className='profile-name'>hi Jane Doe</h2> */}
+                        <input className='profile-name' type="text" name="username" id="username" placeholder={"hi " + userinfo.name} />
+                        {/* <p className='profile-handle'>@janedoe</p> */}
+                        <input className='profile-handle' type="text" name="userhandle" id="userhandle" placeholder={"@" + userinfo.userhandle} />
+                        <select className='select-gender' name="gender" id="gender" placeholder={userinfo.gender}>
                             <option value="woman">Woman</option>
                             <option value="man">Man</option>
                             <option value="non-binary">Non-binary</option>
                             <option value="other">Others</option>
                         </select>
                         <h4>bio</h4>
-                        <textarea className="text-area" name="bio-text" rows="5" cols="36" placeholder='Write a short bio text here...'/>
+                        <textarea className="text-area" name="biotext" rows="5" cols="36" placeholder={userinfo.biotext ? userinfo.biotext : "Write a short bio text here..."}/>
                         <h4>movie genres</h4>
                         <div className='movie-choice-container'>
                             <MovieChoice genre="Sci-fi" />
@@ -98,8 +114,9 @@ const MyProfile = () => {
                             <MovieChoice genre="Comedy" />
                             <MovieChoice genre="Documentary" />
                         </div> 
-                    </div>     
-                </div>
+                    </div>
+                    <button type="submit">save</button> 
+                </form>
             </motion.div>
         </>
      );

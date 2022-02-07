@@ -15,7 +15,8 @@ mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const Map = () => {
 
     const [users, setUsers] = useState();
-    
+    const [loading, setLoading] = useState(true);
+
     //const [filteredUsers, setFilteredUsers] = useState([]);
 
     useEffect(() => {
@@ -49,18 +50,16 @@ const Map = () => {
         height: "100vh"
     });
 
-    const [loading, setLoading] = useState(true);
-
     const navigationControlStyle = {
         right: 16,
         bottom: 80,
-        backgroundColor: `${colors.duskyPink}`,
     }
 
     const geolocateControlStyle = {
         right: 16,
-        bottom: 180
+        bottom: 180,
     }
+
     const style = css`
         z-index: 2000;
         position: absolute;
@@ -89,7 +88,8 @@ const Map = () => {
         {loading && 
             <div css={style}>
                 <div>
-                    <img src="/mb-logo-192.PNG" alt="spinner" className="spinner" />
+                    {/* <img src="/mb-logo-192.PNG" alt="spinner" className="spinner" /> */}
+                    <img src="/mb_spinner.gif" alt="spinner" className="spinner" />
                 </div>
                 <div className="loading">
                     <p >Loading map...</p>

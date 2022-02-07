@@ -11,7 +11,7 @@ import NoMatch from './components/NoMatch';
 import PWAPrompt from "react-ios-pwa-prompt";
 import UserTest from './pages/UserTest';
 
-//import UserContextProvider from "./contexts/MyUserContext";
+import UserContextProvider from "./contexts/MyUserContext";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       
       <Global styles={Globalstyles} />
-      {/* <UserContextProvider> */}
+      <UserContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>    
             <Route path="/" element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
           </Route>
           <Route path="*" element={<NoMatch />} />
         </Routes>
-      {/* </UserContextProvider> */}
+      </UserContextProvider>
       <PWAPrompt />
     </div>
   );

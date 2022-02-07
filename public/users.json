@@ -77,5 +77,20 @@
         ],
         "longitude": 12.565457094120866,
         "latitude": 55.69687580383335
+    }, 
+    {
+        "_id": "wkgnwrgnk3940329ur32jijfksf",
+        "name": "Yoko Ono",
+        "handle": "radiopeace",
+        "gender": "woman",
+        "image": "https://media.lex.dk/media/5659/standard_Yoko_Ono.jpg",
+        "bio": "Movies are art, and I love art. Great cinematography is more important than a good plot",
+        "movieChoice":[
+            "action",
+            "sci-fi",
+            "drama"
+        ],
+        "longitude": 12.083946643715848,
+        "latitude": 55.629948729133254
     }
 ]
